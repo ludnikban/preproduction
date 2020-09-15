@@ -19,6 +19,7 @@ class Shape {
       this.selector.appendChild(canvasCreate);
       this.selector = document.getElementById(this.canvasId);
     }
+
   }
 
   draw() {
@@ -29,34 +30,42 @@ class Shape {
 
 class Square extends Shape {
 
+
   draw(w) {
     super.createCanvas(w);
     this.selector.getContext('2d').strokeStyle = this.strokeStyle;
     this.selector.getContext('2d').lineWidth = this.lineWidth;
     this.selector.getContext('2d').strokeRect(w / 4, w / 4, w / 2, w / 2);
     this.selector.getContext('2d').strokeRect(w / 4, w / 4, w / 2, w / 2);
+
   }
 }
 
 class Circle extends Shape {
+
   draw(w) {
     super.createCanvas(w);
+
     this.selector.getContext('2d').beginPath();
     this.selector.getContext('2d').fillStyle = this.fillStyle;
     this.selector.getContext('2d').strokeStyle = this.strokeStyle;
     this.selector.getContext('2d').lineWidth = this.lineWidth;
+
     this.selector.getContext('2d').arc(w / 2, w / 2, w / 4, 0, Math.PI * 2, true);
     super.draw();
+
   }
 }
 
 class Triange extends Shape {
+
   draw(w) {
     super.createCanvas(w);
     this.selector.getContext('2d').beginPath();
     this.selector.getContext('2d').moveTo(w / 2, w / 4);
     this.selector.getContext('2d').lineTo(w / 4, w * 3 / 4);
     this.selector.getContext('2d').lineTo(w * 3 / 4, w * 3 / 4);
+
     this.selector.getContext('2d').closePath();
     this.selector.getContext('2d').fillStyle = this.fillStyle;
     this.selector.getContext('2d').strokeStyle = this.strokeStyle;
@@ -89,6 +98,7 @@ const triange = new Triange({
   lineWidth: 5
 })
 
+
 function CheckWidth(width) {
   if(width<100)
     return "100";
@@ -101,3 +111,4 @@ function Complete() {
   circle.draw(document.SizeCanvas.circle.value);
   triange.draw(document.SizeCanvas.triange.value);
 }
+
