@@ -5,8 +5,31 @@
   <title>HW3</title>
 </head>
 <body>
+
+  <H2>Задайте ширину холста</H2>
+  <FORM NAME="SizeCanvas">
+    <TABLE>
+      <TR><TD><B>Квадрат<B></TD>
+        <TD><INPUT NAME="square" SIZE=3 VALUE="400"
+                   onBlur="this.value=CheckWidth(this.value)"
+                   onFocus="this.select()"></TD></TR>
+      <TR><TD><B>Круг<B></TD>
+        <TD><INPUT NAME="circle" SIZE=3 VALUE="400"
+                   onBlur="this.value=CheckWidth(this.value)"
+                   onFocus="this.select()"></TD></TR>
+      <TR><TD><B>Треугольник<B></TD>
+        <TD><INPUT NAME="triange" SIZE=3 VALUE="400"
+                   onBlur="this.value=CheckWidth(this.value)"
+                   onFocus="this.select()"></TD></TR>
+    </TABLE>
+    <INPUT TYPE="button" VALUE="Готово" onClick="Complete();">
+    <INPUT TYPE="reset" VALUE="Сброс">
+  </FORM>
+
   <div id="root"></div>
-  <script src="task_3.js"></script>
+
+ <script src="task_3.js"></script>
+
 </body>
 </html>
 

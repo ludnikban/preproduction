@@ -7,13 +7,19 @@ class Shape {
     this.selector = document.getElementById(options.selector);
   }
 
-  createCanvas(w, h) {
-    const canvasCreate = document.createElement('canvas');
-    canvasCreate.setAttribute('id', this.canvasId);
-    canvasCreate.setAttribute('width', w);
-    canvasCreate.setAttribute('height', h);
-    this.selector.appendChild(canvasCreate);
-    this.selector = document.getElementById(this.canvasId);
+  createCanvas(w) {
+    if (document.getElementById(this.canvasId) !== null) {
+      document.getElementById(this.canvasId).setAttribute('width', w);
+      document.getElementById(this.canvasId).setAttribute('height', w);
+    } else {
+      const canvasCreate = document.createElement('canvas');
+      canvasCreate.setAttribute('id', this.canvasId);
+      canvasCreate.setAttribute('width', w);
+      canvasCreate.setAttribute('height', w);
+      this.selector.appendChild(canvasCreate);
+      this.selector = document.getElementById(this.canvasId);
+    }
+
   }
 
   draw() {
@@ -24,42 +30,42 @@ class Shape {
 
 class Square extends Shape {
 
-  draw(w, h) {
-    super.createCanvas(w, h);
+
+  draw(w) {
+    super.createCanvas(w);
     this.selector.getContext('2d').strokeStyle = this.strokeStyle;
     this.selector.getContext('2d').lineWidth = this.lineWidth;
-    if (w < h) {
-      this.selector.getContext('2d').strokeRect(w / 4, w / 4, w / 2, w / 2);
-    } else {
-      this.selector.getContext('2d').strokeRect(h / 4, h / 4, h / 2, h / 2);
-    }
+    this.selector.getContext('2d').strokeRect(w / 4, w / 4, w / 2, w / 2);
+    this.selector.getContext('2d').strokeRect(w / 4, w / 4, w / 2, w / 2);
+
   }
 }
 
 class Circle extends Shape {
-  draw(w, h) {
-    super.createCanvas(w, h);
+
+  draw(w) {
+    super.createCanvas(w);
+
     this.selector.getContext('2d').beginPath();
     this.selector.getContext('2d').fillStyle = this.fillStyle;
     this.selector.getContext('2d').strokeStyle = this.strokeStyle;
     this.selector.getContext('2d').lineWidth = this.lineWidth;
-    if (w < h) {
-      this.selector.getContext('2d').arc(w / 2, w / 2, w / 4, 0, Math.PI * 2, true);
-    } else {
-      this.selector.getContext('2d').arc(h / 2, h / 2, h / 4, 0, Math.PI * 2, true);
-    }
 
-    super.draw(w, h);
+    this.selector.getContext('2d').arc(w / 2, w / 2, w / 4, 0, Math.PI * 2, true);
+    super.draw();
+
   }
 }
 
 class Triange extends Shape {
-  draw(w, h) {
-    super.createCanvas(w, h);
+
+  draw(w) {
+    super.createCanvas(w);
     this.selector.getContext('2d').beginPath();
-    this.selector.getContext('2d').moveTo(w / 2, h / 4);
-    this.selector.getContext('2d').lineTo(w / 4, h * 3 / 4);
-    this.selector.getContext('2d').lineTo(w * 3 / 4, h * 3 / 4);
+    this.selector.getContext('2d').moveTo(w / 2, w / 4);
+    this.selector.getContext('2d').lineTo(w / 4, w * 3 / 4);
+    this.selector.getContext('2d').lineTo(w * 3 / 4, w * 3 / 4);
+
     this.selector.getContext('2d').closePath();
     this.selector.getContext('2d').fillStyle = this.fillStyle;
     this.selector.getContext('2d').strokeStyle = this.strokeStyle;
@@ -92,6 +98,17 @@ const triange = new Triange({
   lineWidth: 5
 })
 
-square.draw(500, 300);
-circle.draw(400, 300);
-triange.draw(200, 300);
+
+function CheckWidth(width) {
+  if(width<100)
+    return "100";
+  else
+    return  width;
+}
+
+function Complete() {
+  square.draw(document.SizeCanvas.square.value);
+  circle.draw(document.SizeCanvas.circle.value);
+  triange.draw(document.SizeCanvas.triange.value);
+}
+
