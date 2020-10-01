@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: darkcyan;
+  background-color: beige;
+  border: 4px double darkgreen;
+}
