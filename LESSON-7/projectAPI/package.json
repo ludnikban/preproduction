@@ -1,0 +1,40 @@
+{
+  "name": "projectapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*{.html,.css,.js}\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:js": "eslint --fix --ext .js .",
+    "build": "SET NODE_ENV='production' && webpack",
+    "watch": "webpack --mode development --watch",
+    "dev": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "babel-eslint": "^10.1.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.9.0",
+    "postcss-loader": "^4.0.2",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.1",
+    "stylelint-config-standard": "^20.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 3 version"
+  ]
+}
