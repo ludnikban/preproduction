@@ -15,7 +15,6 @@ class App extends React.Component {
 
     return (
      <section style={section}>
-       <button><Link to="/">Дом</Link></button>
        <button><Link to={{pathname: "/react", state: {}}}>Список на React</Link></button>
        <button><Link to={{pathname: "/redux", state: {}}} >Список на Redux</Link></button>
        <hr/>
