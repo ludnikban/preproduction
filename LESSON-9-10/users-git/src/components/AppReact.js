@@ -43,7 +43,7 @@ class AppReact extends React.Component {
       return <p>Список загружается…</p>;
     }
     return (
-      <div>
+      <div className="container">
         <h2>Список пользователей Github, полученный с помощью React</h2>
         <div className="row row-cols-1 row-cols-md-4 row-cols-sm-2" id="users">
           {DeleteListUsers()}
