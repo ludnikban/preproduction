@@ -18,8 +18,8 @@ class AppRedux extends Component {
           {DeleteListUsers()}
           {
             this.props.users.forEach(item => {
-              const users = document.getElementById('users');
-              CreateListUsers(item, users);
+              const addUsers = document.getElementById('users');
+              CreateListUsers(item, addUsers);
             })
           }
         </div>
@@ -28,7 +28,7 @@ class AppRedux extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     users: state.users,
     hasErrored: state.usersHasErrored,
@@ -36,9 +36,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchData: (url) => dispatch(usersFetchData(url))
+    fetchData: url => dispatch(usersFetchData(url))
   };
 };
 

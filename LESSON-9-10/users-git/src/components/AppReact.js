@@ -16,7 +16,7 @@ class AppReact extends React.Component {
     this.setState({isLoading: true});
 
     fetch(url)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
@@ -49,8 +49,8 @@ class AppReact extends React.Component {
           {DeleteListUsers()}
           {
             this.state.users.forEach(item => {
-              const users = document.getElementById('users');
-              CreateListUsers(item, users);
+              const addUsers = document.getElementById('users');
+              CreateListUsers(item, addUsers);
             })
           }
         </div>
