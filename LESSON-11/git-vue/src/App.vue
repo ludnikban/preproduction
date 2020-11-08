@@ -2,7 +2,7 @@
   <div class="container" id="app">
     <h2 class="text-center">Список пользователей Github, полученный с помощью Vuex</h2>
     <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
-      <div class="col mb-4" v-for="(user) in USERS" :key="user">
+      <div class="col mb-4" v-for="(user) in usersList" :key="user">
         <div class="card h-100">
           <img class="card-img-top" :src=user.avatar_url alt="">
           <div class="card-text">
@@ -22,21 +22,21 @@
     name: 'app',
     computed: {
       ...mapGetters([
-        'IS_MOBILE',
-        'IS_DESKTOP',
-        'USERS'
+        'is_Mobile',
+        'is_Desktop',
+        'usersList'
       ]),
     },
     methods: {
       ...mapActions([
-        'SET_MOBILE',
-        'SET_DESKTOP',
-        'GET_USERS_FROM_API'
+        'set_Mobile',
+        'set_Desktop',
+        'getUsersFromAPI'
       ]),
     },
     mounted() {
-      if (!this.USERS.length) {
-        this.GET_USERS_FROM_API();
+      if (!this.usersList.length) {
+        this.getUsersFromAPI();
       }
     }
   }

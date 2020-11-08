@@ -1,11 +1,11 @@
 export default {
-  SET_MOBILE({commit}) {
+  set_Mobile({commit}) {
     commit('SWITCH_MOBILE')
   },
-  SET_DESKTOP({commit}) {
+  set_Desktop({commit}) {
     commit('SWITCH_DESKTOP')
   },
-  GET_USERS_FROM_API({commit}, users) {
+  getUsersFromAPI({commit}, users) {
     commit('SET_USERS', users);
   }
 }

@@ -1,11 +1,11 @@
 export default  {
-  IS_MOBILE(state) {
+  is_Mobile(state) {
     return state.isMobile;
   },
-  IS_DESKTOP(state) {
+  is_Desktop(state) {
     return state.isDesktop;
   },
-  USERS(state) {
+  usersList(state) {
     return state.users;
   }
 }

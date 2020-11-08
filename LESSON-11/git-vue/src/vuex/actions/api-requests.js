@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  GET_USERS_FROM_API({commit}) {
+  getUsersFromAPI({commit}) {
     return axios('http://api.github.com/users', {
       method: "GET"
     })
