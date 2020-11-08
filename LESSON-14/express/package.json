@@ -1,0 +1,18 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hw14.js",
+  "scripts": {
+    "start": "node ./hw14.js",
+    "dev": "nodemon ./hw14.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^5.0.2",
+    "express": "^4.16.4",
+    "nodemon": "^2.0.6"
+  }
+}

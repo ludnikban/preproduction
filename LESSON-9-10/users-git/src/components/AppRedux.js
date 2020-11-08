@@ -11,6 +11,7 @@ class AppRedux extends Component {
   }
 
   render() {
+
     return (
       <div>
         <h2>Список пользователей Github, полученный с помощью Redux</h2>
@@ -20,6 +21,7 @@ class AppRedux extends Component {
             this.props.users.forEach(item => {
               const addUsers = document.getElementById('users');
               CreateListUsers(item, addUsers);
+
             })
           }
         </div>
@@ -28,7 +30,9 @@ class AppRedux extends Component {
   }
 }
 
+
 const mapStateToProps = state => {
+
   return {
     users: state.users,
     hasErrored: state.usersHasErrored,
@@ -36,9 +40,11 @@ const mapStateToProps = state => {
   };
 };
 
+
 const mapDispatchToProps = dispatch => {
   return {
     fetchData: url => dispatch(usersFetchData(url))
+
   };
 };
 

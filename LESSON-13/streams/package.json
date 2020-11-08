@@ -1,0 +1,16 @@
+{
+  "name": "streams",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hw13.js",
+  "scripts": {
+    "start": "node hw13.js",
+    "dev": "nodemon hw13.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^5.0.2",
+    "nodemon": "^2.0.6"
+  }
+}
