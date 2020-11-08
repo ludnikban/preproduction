@@ -16,7 +16,7 @@ class AppReact extends React.Component {
     this.setState({isLoading: true});
 
     fetch(url)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
@@ -43,14 +43,14 @@ class AppReact extends React.Component {
       return <p>Список загружается…</p>;
     }
     return (
-      <div>
+      <div className="container">
         <h2>Список пользователей Github, полученный с помощью React</h2>
         <div className="row row-cols-1 row-cols-md-4 row-cols-sm-2" id="users">
           {DeleteListUsers()}
           {
             this.state.users.forEach(item => {
-              const users = document.getElementById('users');
-              CreateListUsers(item, users);
+              const addUsers = document.getElementById('users');
+              CreateListUsers(item, addUsers);
             })
           }
         </div>

@@ -5,19 +5,12 @@ import {CreateListUsers} from "../CreateList";
 import {DeleteListUsers} from "../DeleteList";
 
 class AppRedux extends Component {
+
   componentDidMount() {
     this.props.fetchData('http://api.github.com/users');
   }
 
   render() {
-
-    if (this.props.hasErrored) {
-      return <p>Извините! При загрузке списка возникла ошибка</p>;
-    }
-
-    if (this.props.isLoading) {
-      return <p>Список загружается…</p>;
-    }
 
     return (
       <div>
@@ -26,8 +19,9 @@ class AppRedux extends Component {
           {DeleteListUsers()}
           {
             this.props.users.forEach(item => {
-              const users = document.getElementById('users');
-              CreateListUsers(item, users);
+              const addUsers = document.getElementById('users');
+              CreateListUsers(item, addUsers);
+
             })
           }
         </div>
@@ -36,7 +30,9 @@ class AppRedux extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+
+const mapStateToProps = state => {
+
   return {
     users: state.users,
     hasErrored: state.usersHasErrored,
@@ -44,9 +40,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+
+const mapDispatchToProps = dispatch => {
   return {
-    fetchData: (url) => dispatch(usersFetchData(url))
+    fetchData: url => dispatch(usersFetchData(url))
+
   };
 };
 

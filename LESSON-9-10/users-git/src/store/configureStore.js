@@ -8,4 +8,5 @@ export default function configureStore(initialState) {
     initialState,
     applyMiddleware(thunk)
   );
+
 }
