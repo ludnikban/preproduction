@@ -6,7 +6,6 @@ import { UserModule } from '../user/user.module';
 import { AuthService } from './auth.service';
 import { jwtConstants } from './constants';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
   imports: [
@@ -17,8 +16,7 @@ import { LocalStrategy } from './strategies/local.strategy';
       signOptions: { expiresIn: '2h' },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
-    // providers: [AuthService, LocalStrategy],
+  providers: [AuthService, JwtStrategy],
   exports: [AuthService],
 })
 export class AuthModule {}

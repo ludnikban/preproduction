@@ -7,7 +7,8 @@ export = {
   "port": 5432,
   "username": "postgres",
   "password": "12345",
-  "database": "docker",
+  "database": "dev-backend",
+  // "database": "docker",
   "synchronize": false,
   "logging": false,
   "entities": [

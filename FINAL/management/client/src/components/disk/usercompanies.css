@@ -3,6 +3,8 @@
 }
 .usercompanies__btns {
   display: flex;
+  margin-top: 20px;
+
 }
 .usercompanies__create {
   margin-left: 10px;

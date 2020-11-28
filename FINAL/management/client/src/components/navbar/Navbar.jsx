@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.css'
-import Logo from '../../assets/img/navbar-logo.svg'
+import Logo from '../../assets/img/technorely.png'
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../reducers/userReducer";

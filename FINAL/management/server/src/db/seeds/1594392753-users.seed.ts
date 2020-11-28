@@ -11,13 +11,50 @@ export default class CreateUsers implements Seeder {
         .into(User)
         .values([
           {
-            email: 'ludnik@ukr.net',
-            password: 'secret',
-            nick_Name: "Ludnik",
+            id: 1,
+            email: 'first@i.ua',
+            password: 'first',
+            nick_Name: "Иванов И.И.",
+            last_Name: "Иванов",
+            first_Name: "Иван",
             phone_Number: 100,
-            position: 'admin'
+            description: "",
+            position: 'user'
           },
-        ])
+            {
+                id: 2,
+                email: 'second@i.ua',
+                password: 'second',
+                nick_Name: "Петров П.П.",
+                last_Name: "Петров",
+                first_Name: "Петр",
+                phone_Number: 200,
+                description: "",
+                position: 'user'
+            },
+            {
+                id: 3,
+                email: 'fird@i.ua',
+                password: 'fird',
+                nick_Name: "Михайлов М.М.",
+                last_Name: "Михаилов",
+                first_Name: "Михаил",
+                phone_Number: 300,
+                description: "",
+                position: 'user'
+            },
+            {
+                id: 4,
+                email: 'super@i.ua',
+                password: 'super',
+                nick_Name: "Джексон Мю",
+                last_Name: "Джексон",
+                first_Name: "Майкл",
+                phone_Number: 400,
+                description: "",
+                position: 'admin'
+            },
+            ])
         .execute()
     } catch (e) {
       console.warn(e)
