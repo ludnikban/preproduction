@@ -1,0 +1,29 @@
+.file {
+  margin: 10px 0;
+  border-bottom: solid 2px #566885;
+  display: grid;
+  grid-template-columns: 3fr 6fr repeat(6, 3fr);
+  align-items: center;
+}
+.file:hover {
+  transform: scale(1.02);
+}
+.file__name {
+  grid-column-start: 1;
+}
+.file__address {
+  grid-column-start: 2;
+}
+.file__number_Of_Employees {
+  grid-column-start: 3;
+}
+.file__type {
+  grid-column-start: 4;
+}
+.file__service_Of_Activity {
+  grid-column-start: 5;
+}
+.file__description {
+  grid-column-start: 6;
+}
+/*# sourceMappingURL=file.css.map */

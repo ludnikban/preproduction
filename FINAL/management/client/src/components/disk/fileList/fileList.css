@@ -1,0 +1,27 @@
+.filelist {
+  margin: 20px 0;
+}
+.filelist__header {
+  display: grid;
+  grid-template-columns: 3fr 6fr repeat(6, 3fr);
+}
+.filelist__name {
+  grid-column-start: 1;
+}
+.filelist__address {
+  grid-column-start: 2;
+}
+.filelist__number_Of_Employees {
+  grid-column-start: 3;
+}
+.filelist__type {
+  grid-column-start: 4;
+}
+
+.filelist__service_Of_Activity {
+  grid-column-start: 5;
+}
+.filelist__description  {
+  grid-column-start: 6;
+}
+/*# sourceMappingURL=fileList.css.map */
