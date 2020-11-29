@@ -9,17 +9,27 @@ const Companies = () => {
 
   const user = useSelector(state => state.user.User.user)
 
-  return (
-    <div className="companies">
-      <h2 className="companies__header">Пользователь {user.nick_Name} </h2>
-
-      <div className="companies__btns">
-        <button className="companies__create__create">Добавить компанию</button>
+  if (user.company === undefined || user.company.length === 0) {
+    return (
+      <div className="companies">
+        <h2 className="companies__header">Пользователь {user.first_Name} {user.last_Name}</h2>
+        <div className="companies__btns">
+          <button className="companies__create__create">Добавить компанию</button>
+        </div>
       </div>
-      <FileList/>
-    </div>
-  );
-};
+    )
+  } else {
+    return (
+      <div className="companies">
+        <h2 className="companies__header">Пользователь {user.first_Name} {user.last_Name} </h2>
+        <div className="companies__btns">
+          <button className="companies__create__create">Добавить компанию</button>
+        </div>
+        <FileList/>
+      </div>
+    )
+  }
+}
 
 export default Companies
 
