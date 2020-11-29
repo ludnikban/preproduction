@@ -19,13 +19,21 @@ export class UserController {
         return this.userService.create(body.user);
     }
 
-// поиск юзера по email, password с действующими компаниями
+// поиск юзера по email, password
 
     @Get(':auth/reg')
     async findCurrUser(@Query('email') email: string,
-                   @Query('password') password: string): Promise<any> {
-        return this.userService.findCurrUser(email, password);
+                       @Query('password') password: string): Promise<any> {
+        return this.userService.findUser(email, password);
     }
+
+    // поиск юзера по email
+
+    @Get(':user/companies')
+    async findOneWithCompanies(@Body() body): Promise<any> {
+        return this.userService.findOneWithCompany(body.email);
+    }
+
 
 // поиск всех юзеров с их фирмами
 

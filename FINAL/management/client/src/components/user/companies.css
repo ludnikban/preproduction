@@ -1,0 +1,18 @@
+.companies {
+  margin-top: 20px;
+}
+.companies__btns {
+  display: flex;
+  margin-top: 20px;
+
+}
+.companies__create {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.companies__list {
+    margin-left: 10px;
+    /*margin-right: 20px;*/
+}
+/*# sourceMappingURL=companies.css.map */

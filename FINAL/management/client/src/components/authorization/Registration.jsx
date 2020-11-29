@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './authorization.css'
 import Input from "../../utils/input/Input";
+import {useDispatch} from "react-redux";
 import {registration} from "../../actions/user";
 
 const Registration = () => {
@@ -9,9 +10,10 @@ const Registration = () => {
   const [last_Name, setlast_Name] = useState("")
   const [first_Name, setfirst_Name] = useState("")
   const [nick_Name, setnick_Name] = useState("")
-  // const [phone_Number, setphone_Number] = useState("")
   const [description, setdescription] = useState("")
   const [position, setposition] = useState("")
+  // const [phone_Number, setphone_Number] = useState("")
+  const dispatch = useDispatch()
 
   return (
     <div className='authorization'>
@@ -24,7 +26,8 @@ const Registration = () => {
       {/*<Input value={phone_Number} setvalue={setphone_Number} placeholder="Введите номер телефона..." required/>*/}
       <Input value={description} setValue={setdescription} type="text" placeholder="Введите описание..." required/>
       <Input value={position} setValue={setposition} type="text" placeholder="Введите роль..." required/>
-      <button className="authorization__btn" onClick={() => registration(email, password)}>Зарегистрироваться</button>
+      <button className="authorization__btn" onClick={() =>
+        dispatch(registration(email, password, last_Name, first_Name, nick_Name,description,position))}>Зарегистрироваться</button>
     </div>
   );
 };

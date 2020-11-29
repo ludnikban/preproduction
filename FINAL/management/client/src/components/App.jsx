@@ -5,7 +5,7 @@ import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import Registration from "./authorization/Registration";
 import Login from "./authorization/Login";
 import {useSelector} from "react-redux";
-import UserCompanies from "./disk/UserCompanies";
+import Companies from "./user/Companies";
 
 function App() {
   const isAuth = useSelector(state => state.user.isAuth)
@@ -23,7 +23,7 @@ function App() {
             </Switch>
             :
             <Switch>
-              <Route exact path="/companies" component={UserCompanies}/>
+              <Route exact path="/companies" component={Companies}/>
               <Redirect to="/companies"/>
             </Switch>
           }

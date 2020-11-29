@@ -10,7 +10,7 @@ export class AuthService {
   ) {}
 
     async validateUser(email: string, pass: string): Promise<any> {
-        const user = await this.usersService.findCurrUser(email,pass);
+        const user = await this.usersService.findUser(email,pass);
 
         if (user && user.password === pass) {
             return {token: this.jwtService.sign({ email: user.email, sub: user.id}), user}
@@ -20,16 +20,22 @@ export class AuthService {
         return null;
     }
 
-    async registrUser(email: string ): Promise<any> {
-        const user = await this.usersService.findByEmail(email)
+    async registrUser(body: any): Promise<any> {
+        // console.log("registrUser",body)
 
-        // console.log('user: ', user)
+        const newUser = await this.usersService.findByEmail(body.email)
+        // console.log('auth.service findByEmail: ', newUser)
 
-        if (!user) {
-            const newUser = await this.usersService.create(user)
-            return {token: this.jwtService.sign({ email: newUser.email, sub: newUser.id}), newUser}
+        if (!newUser) {
+            // console.log('user: ', newUser)
+
+            const user = await this.usersService.create(body)
+            // console.log('created: ', user)
+
+            return {token: this.jwtService.sign({ email: user.email, sub: user.id}), user}
         } else {
-            // console.log('в БД уже есть user: ', user)
+
+        // console.log('в БД уже есть user: ', newUser)
              // throw new UnauthorizedException()
         }
         return null;
