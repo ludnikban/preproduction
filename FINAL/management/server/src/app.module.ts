@@ -1,22 +1,19 @@
-import { Module } from '@nestjs/common';
-import {TypeOrmModule} from "@nestjs/typeorm";
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-// import { configModule } from './configure.root';
-
-import { AuthModule } from './modules/auth/auth.module';
-import { UserModule } from './modules/user/user.module';
-import { CompanyModule } from './modules/company/company.module';
-import { User } from './db/entities/user.entity';
-import { Company } from './db/entities/company.entity';
+import { Module } from '@nestjs/common'
+import {TypeOrmModule} from "@nestjs/typeorm"
+import { ConfigModule } from '@nestjs/config'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { AuthModule } from './modules/auth/auth.module'
+import { UserModule } from './modules/user/user.module'
+import { CompanyModule } from './modules/company/company.module'
+import { User } from './db/entities/user.entity'
+import { Company } from './db/entities/company.entity'
 
 @Module({
   imports: [
     AuthModule,
     UserModule,
     CompanyModule,
-    // configModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forFeature([User]),
     TypeOrmModule.forFeature([Company]),

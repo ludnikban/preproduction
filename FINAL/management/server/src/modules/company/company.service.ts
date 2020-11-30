@@ -1,5 +1,5 @@
-import {Injectable, HttpException} from '@nestjs/common'
-import {Like, Repository} from 'typeorm'
+import {Injectable } from '@nestjs/common'
+import {Repository} from 'typeorm'
 import {InjectRepository} from '@nestjs/typeorm'
 import {Company} from '../../db/entities/company.entity'
 
@@ -43,9 +43,4 @@ export class CompanyService {
     async update(id, company): Promise<any> {
         return await this.userRepository.update(id, {...company})
     }
-
-    // async deleteCompany(id): Promise<any> {
-    //     const deletedCompany = await this.userRepository.findByIdAndRemove(id);
-    //     return deletedCompany
-    // }
 }

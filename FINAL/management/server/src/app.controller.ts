@@ -1,6 +1,6 @@
-import {Body, Controller, Get, Post, Query, Request, UseGuards} from '@nestjs/common';
-import {AuthService} from './modules/auth/auth.service';
-import {UserService} from './modules/user/user.service';
+import {Body, Controller, Get, Post, Query, Request, UseGuards} from '@nestjs/common'
+import {AuthService} from './modules/auth/auth.service'
+import {UserService} from './modules/user/user.service'
 
 
 @Controller()
@@ -12,15 +12,11 @@ export class AppController {
     @Post('user/auth/login')
     async login(@Body() body) {
 
-        // console.log(body)
-
-        return this.authService.validateUser(body.email, body.password);
+        return this.authService.validateUser(body.email, body.password)
     }
 
     @Post('user/auth/reg')
     async register(@Body() body) {
-
-        // console.log(body)
 
         return this.authService.registrUser(body);
     }
@@ -32,9 +28,6 @@ export class AppController {
 
     @Get(':user/companies')
     async getCompanies(@Query('email') email: string): Promise<any> {
-
-        // console.log("app.controller email", email)
-
 
         return this.userService.findOneWithCompany(email)
     }

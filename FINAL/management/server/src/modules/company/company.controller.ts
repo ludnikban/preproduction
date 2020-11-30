@@ -38,17 +38,4 @@ export class CompanyController {
     ): Promise<any> {
         return this.companyService.update(params.id, {...body})
     }
-
-    // Delete a company using ID
-//     @Delete('/delete')
-//     async deleteCompany(@Res() res, @Query('id', new ValidateObjectId()) id) {
-//         const deletedCompany = await this.companyService.deleteCompany(id);
-//         if (!deletedCompany) {
-//             throw new NotFoundException('Company does not exist!');
-//         }
-//         return res.status(HttpStatus.OK).json({
-//             message: 'Post has been deleted!',
-//             company: deletedCompany,
-//         });
-//     }
 }

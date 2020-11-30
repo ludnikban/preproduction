@@ -1,6 +1,4 @@
 import { NestFactory } from '@nestjs/core'
-// let passport = require('passport')
-// let Strategy = require('passport-local').Strategy
 
 import { AppModule } from './app.module'
 

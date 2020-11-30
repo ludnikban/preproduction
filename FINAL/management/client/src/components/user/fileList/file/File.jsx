@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './file.css'
 const File = ({file}) => {
     return (
@@ -10,7 +10,7 @@ const File = ({file}) => {
           <div className="file__service_Of_Activity">{file.service_Of_Activity}</div>
           <div className="file__description">{file.description}</div>
         </div>
-    );
-};
+    )
+}
 
-export default File;
+export default File

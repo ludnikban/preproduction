@@ -13,45 +13,45 @@ import { Company } from './company.entity'
 export class User {
 
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column()
-  email: string;
+  email: string
 
   @Column({ nullable: true })
-  password: string;
+  password: string
 
   @Column({ nullable: true })
-  nick_Name: string;
+  nick_Name: string
 
   @Column({ nullable: true })
-  last_Name: string;
+  last_Name: string
 
   @Column({ nullable: true })
-  first_Name: string;
-
-  @Column({ default: 0 })
-  phone_Number: number;
+  first_Name: string
 
   @Column({ nullable: true })
-  description: string;
+  phone_Number: string
 
   @Column({ nullable: true })
-  position: string;
+  description: string
+
+  @Column({ nullable: true })
+  position: string
 
   @Column({ type: 'timestamp', nullable: true, name: 'deleted_at' })
-  public deletedAt: Date;
+  public deletedAt: Date
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt: Date;
+  createdAt: Date
 
   @UpdateDateColumn({ type: 'timestamp' })
-  updatedAt: Date;
+  updatedAt: Date
 
   @OneToMany(
     type => Company,
     company => company.user,
   )
   @JoinColumn()
-  company: Company;
+  company: Company
 }

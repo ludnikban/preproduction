@@ -1,11 +1,11 @@
-import React from 'react';
-import Navbar from "./navbar/Navbar";
+import React from 'react'
+import Navbar from "./navbar/Navbar"
 import './app.css'
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import Registration from "./authorization/Registration";
-import Login from "./authorization/Login";
-import {useSelector} from "react-redux";
-import Companies from "./user/Companies";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom"
+import Registration from "./authorization/Registration"
+import Login from "./authorization/Login"
+import {useSelector} from "react-redux"
+import Companies from "./user/Companies"
 
 function App() {
   const isAuth = useSelector(state => state.user.isAuth)
@@ -33,7 +33,7 @@ function App() {
   );
 }
 
-export default App;
+export default App
 
 
 

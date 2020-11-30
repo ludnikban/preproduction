@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import './authorization.css'
-import Input from "../../utils/input/Input";
-import {useDispatch, useSelector} from "react-redux";
-import {companies, login} from "../../actions/user";
+import Input from "../../utils/input/Input"
+import {useDispatch} from "react-redux"
+import {login} from "../../actions/user"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -19,4 +19,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default Login

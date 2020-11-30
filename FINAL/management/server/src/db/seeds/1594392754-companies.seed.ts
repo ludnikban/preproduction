@@ -1,6 +1,6 @@
 import {Factory, Seeder} from 'typeorm-seeding'
 import {Connection} from 'typeorm'
-import {Company} from "../entities/company.entity";
+import {Company} from "../entities/company.entity"
 
 export default class CreateUsers implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
@@ -17,7 +17,7 @@ export default class CreateUsers implements Seeder {
             description: "ииииииииииииииии",
             number_Of_Employees: 120,
             service_Of_Activity: "оооооооооооо",
-            userId: 66,
+            userId: 1,
           },
             {
                 name: "Фирма 2 юзера Иванов И.И.",
@@ -26,7 +26,7 @@ export default class CreateUsers implements Seeder {
                 description: "уууууууууууууууу",
                 number_Of_Employees: 350,
                 service_Of_Activity: "вввввввввввв",
-                userId: 66,
+                userId: 1,
             },
             {
                 name: "Фирма 3 юзера Иванов И.И.",
@@ -35,7 +35,7 @@ export default class CreateUsers implements Seeder {
                 description: "аааааааааааааааа",
                 number_Of_Employees: 20,
                 service_Of_Activity: "вввввввввввв",
-                userId: 66,
+                userId: 1,
             },
             {
                 name: "Фирма 1 юзера Петров П.П.",
@@ -44,7 +44,7 @@ export default class CreateUsers implements Seeder {
                 description: "яяяяяяяяяяяяяяяя",
                 number_Of_Employees: 160,
                 service_Of_Activity: "ммммммммм",
-                userId: 67,
+                userId: 2,
             },
             {
                 name: "Фирма 2 юзера Петров П.П.",
@@ -53,7 +53,7 @@ export default class CreateUsers implements Seeder {
                 description: "ллллллллллллллля",
                 number_Of_Employees: 60,
                 service_Of_Activity: "ккккккккм",
-                userId: 67,
+                userId: 2,
             },
             {
                 name: "Фирма 1 юзера Михайлов М.М.",
@@ -62,7 +62,7 @@ export default class CreateUsers implements Seeder {
                 description: "кккккккккккккккк",
                 number_Of_Employees: 260,
                 service_Of_Activity: "ццццццццм",
-                userId: 68,
+                userId: 3,
             },
             ])
         .execute()

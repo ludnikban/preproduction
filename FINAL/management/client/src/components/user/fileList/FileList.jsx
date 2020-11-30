@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'
 import './fileList.css'
-import {useSelector} from "react-redux";
-import File from "./file/File";
-// import {useDispatch} from "react-redux";
-// import {companies} from "../../../actions/user";
+import {useSelector} from "react-redux"
+import File from "./file/File"
 
 const FileList = () => {
 
@@ -25,4 +23,4 @@ const FileList = () => {
   );
 };
 
-export default FileList;
+export default FileList

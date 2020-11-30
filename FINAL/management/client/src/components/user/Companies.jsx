@@ -1,9 +1,7 @@
 import React from 'react'
 import FileList from "./fileList/FileList"
 import './companies.css'
-import {useDispatch, useSelector} from "react-redux";
-// import {login} from "../../actions/user";
-// import {companies} from "../../actions/user";
+import {useSelector} from "react-redux"
 
 const Companies = () => {
 

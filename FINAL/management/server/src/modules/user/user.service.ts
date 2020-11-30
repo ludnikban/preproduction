@@ -1,7 +1,7 @@
-import {Injectable, HttpException} from '@nestjs/common';
-import {Repository} from 'typeorm';
-import {InjectRepository} from '@nestjs/typeorm';
-import {User} from '../../db/entities/user.entity';
+import {Injectable} from '@nestjs/common'
+import {Repository} from 'typeorm'
+import {InjectRepository} from '@nestjs/typeorm'
+import {User} from '../../db/entities/user.entity'
 
 @Injectable()
 export class UserService {
@@ -11,25 +11,16 @@ export class UserService {
     ) {
     }
 
-// поиск юзера по email с компаниями
-
-    async findOneWithCompany(email: string): Promise<any> {
-
-        console.log('user.service findOneWithCompany: ', email)
-
+    async findByEmail(email: string): Promise<User> {
         return await this.userRepository.createQueryBuilder('user')
-            .where("user.email = :email",
-                {email: email})
+            .where("user.email = :email", {email: email})
             .andWhere('user.deletedAt  is NULL')
-            .leftJoinAndSelect('user.company', 'company')
-            .orderBy({
-                "user.id": "ASC",
-                "company.id": "DESC"
-            })
             .getOne()
     }
 
-// поиск юзера по email, password c компаниями
+    async create(user): Promise<any> {
+        return await this.userRepository.save(user);
+    }
 
     async findUser(email: string, password: string): Promise<any> {
         return await this.userRepository.createQueryBuilder('user')
@@ -43,19 +34,18 @@ export class UserService {
             }).getOne()
     }
 
-    // поиск юзера по email
-
-    async findByEmail(email: string): Promise<User> {
-
-        console.log('user.service findByEmail: ', email)
-
+    async findOneWithCompany(email: string): Promise<any> {
         return await this.userRepository.createQueryBuilder('user')
-            .where("user.email = :email", {email: email})
+            .where("user.email = :email",
+                {email: email})
             .andWhere('user.deletedAt  is NULL')
+            .leftJoinAndSelect('user.company', 'company')
+            .orderBy({
+                "user.id": "ASC",
+                "company.id": "DESC"
+            })
             .getOne()
     }
-
-// поиск всех юзеров с их фирмами
 
     async findAllWithCompany(params: any): Promise<any> {
         return await this.userRepository.createQueryBuilder('user')
@@ -70,36 +60,6 @@ export class UserService {
             .getMany()
     }
 
-// поиск одного юзера по id с фирмами
-
-    async findIdWithCompany(id): Promise<any> {
-        return await this.userRepository.createQueryBuilder('user')
-            .where("user.id = :id", {id: id})
-            .leftJoinAndSelect('user.company', 'company')
-            .where('company.deletedAt  is NULL')
-            .getMany()
-    }
-
-
-//поиск юзера по id
-
-    async findOne(id): Promise<any> {
-        return await this.userRepository.createQueryBuilder('user')
-            .where("user.id = :id", {id: id})
-            .getOne()
-    }
-
-// запись юзера в БД
-
-    async create(user): Promise<any> {
-
-        console.log('create user: ', user)
-
-        return await this.userRepository.save(user);
-    }
-
-// удаление юзера по id (корректировка поля deletedAt)
-
     async delete(id): Promise<any> {
         const user = {
             deletedAt: new Date(),
@@ -107,9 +67,14 @@ export class UserService {
         return await this.userRepository.update(id, user);
     }
 
-// корректировка юзера
-
     async update(id, company): Promise<any> {
         return await this.userRepository.update(id, {...company})
     }
+
+    async findOne(id): Promise<any> {
+        return await this.userRepository.createQueryBuilder('user')
+            .where("user.id = :id", {id: id})
+            .getOne()
+    }
 }
+

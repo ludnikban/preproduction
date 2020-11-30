@@ -12,41 +12,41 @@ import { User } from './user.entity'
 @Entity('companies')
 export class Company {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ nullable: false })
-  name: string;
+  name: string
 
   @Column({ nullable: true })
-  address: string;
+  address: string
 
   @Column({ nullable: true })
-  service_Of_Activity: string;
+  service_Of_Activity: string
 
   @Column({ default: 0 })
-  number_Of_Employees: number;
+  number_Of_Employees: number
 
   @Column({ nullable: true })
-  description: string;
+  description: string
 
   @Column({ nullable: true })
-  type: string;
+  type: string
 
   @Column({ default: 0 })
-  userId: number;
+  userId: number
 
   @Column({ type: 'timestamp', nullable: true, name: 'deleted_at' })
-  public deletedAt: Date;
+  public deletedAt: Date
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt: Date;
+  createdAt: Date
 
   @UpdateDateColumn({ type: 'timestamp' })
-  updatedAt: Date;
+  updatedAt: Date
 
   @ManyToOne(
     type => User,
     user => user.id
   )
-  user: User;
+  user: User
 }

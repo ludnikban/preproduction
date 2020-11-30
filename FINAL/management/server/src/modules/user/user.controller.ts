@@ -1,48 +1,39 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
-import { UserService } from './user.service';
-import { User } from '../../db/entities/user.entity';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { UserService } from './user.service'
+import { User } from '../../db/entities/user.entity'
 
 @Controller('user')
 export class UserController {
   constructor(private userService: UserService) {
   }
-//Аутентификация юзера
-    @Post(':auth/login')
-    async findUser(@Body() body)
-        : Promise<User> {
-        return this.userService.findByEmail(body.user);
-    }
-//запись юзера в БД - Регистрация юзера
-    @Post(':auth/reg')
-    async createUser(@Body() body)
-        : Promise<any> {
-        return this.userService.create(body.user);
-    }
 
-// поиск юзера по email, password
+  @Post(':auth/login')
+  async findUser(@Body() body)
+      : Promise<User> {
+      return this.userService.findByEmail(body.user);
+  }
 
-    @Get(':auth/reg')
-    async findCurrUser(@Query('email') email: string,
-                       @Query('password') password: string): Promise<any> {
-        return this.userService.findUser(email, password);
-    }
+  @Post(':auth/reg')
+  async createUser(@Body() body)
+      : Promise<any> {
+      return this.userService.create(body.user);
+  }
 
-    // поиск юзера по email
+  @Get(':auth/reg')
+  async findCurrUser(@Query('email') email: string,
+                     @Query('password') password: string): Promise<any> {
+      return this.userService.findUser(email, password);
+  }
 
-    @Get(':user/companies')
-    async findOneWithCompanies(@Body() body): Promise<any> {
-        return this.userService.findOneWithCompany(body.email);
-    }
+  @Get(':user/companies')
+  async findOneWithCompanies(@Body() body): Promise<any> {
+      return this.userService.findOneWithCompany(body.email);
+  }
 
-
-// поиск всех юзеров с их фирмами
-
-    @Get()
-    async findAllWithCompany(@Query() params): Promise<User> {
-        return this.userService.findAllWithCompany(params);
-    }
-
-//удаление юзера по id (корректировка поля deletedAt)
+  @Get()
+  async findAllWithCompany(@Query() params): Promise<User> {
+      return this.userService.findAllWithCompany(params);
+  }
 
   @Delete(':id')
   async delete(
@@ -51,8 +42,6 @@ export class UserController {
     return this.userService.delete(params.id);
   }
 
-// корректировка юзера
-
   @Put(':id')
   async update(
     @Param() params,
@@ -60,8 +49,6 @@ export class UserController {
   ): Promise<any> {
     return this.userService.update(params.id, {...body})
   }
-
-//поиск юзера по id
 
   @Get(':auth/profile')
     async findOne(@Query('id') id: string): Promise<any> {
